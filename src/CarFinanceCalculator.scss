@@ -1,0 +1,104 @@
+$primary: #08521d;
+$accent: #e41be0;
+$bg: #f4f4f4; /* Light background */
+$foreground: #000000;
+
+body {
+  font-family: Arial, sans-serif;
+  background: $bg; /* Light background */
+  color: $foreground;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  padding: 20px;
+  height: 100vh; /* Full height */
+  margin: 0; /* Remove default margin */
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Stack vertically on small screens */
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Rounded corners effect */
+}
+
+.form-container, .output-container {
+  background-color: #ffffff; /* White background for the form */
+  padding: 50px;
+  margin: 10px; /* Add margin to prevent overflow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Optional: Rounded corners */
+  flex: 1; /* Allow to grow/shrink */
+  min-width: 300px; /* Prevent too small on narrow screens */
+}
+
+.output-container {
+  background-color: #f9f9f9; /* Light gray for output */
+}
+
+h1, h2 {
+  text-align: center;
+  color: $primary; /* Use primary color for headings */
+}
+
+input{
+  margin: 10px 0;
+  padding: 12px;
+  width: 92%; /* Full width to match container */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px; /* Font size for inputs */
+}
+
+input[type="range"] {
+  margin: 20px 0; /* Spacing for range input */
+}
+
+select {
+  margin: 10px 0;
+  padding: 12px;
+  width: 100%; /* Full width to match container */
+  max-width: 400px; /* Limit the max width for larger screens */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px; /* Font size for select */
+}
+
+
+button {
+  padding: 12px;
+  background-color: $primary; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px; /* Font size for button */
+}
+
+button:hover {
+  background-color: darken($primary, 10%); /* Darken on hover */
+}
+
+.output-container h2 {
+  margin: 10px 0; /* Spacing for output headings */
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* Row on larger screens */
+  }
+
+  .form-container {
+    width: 40%; /* Form takes 40% of width */
+  }
+
+  .output-container {
+    width: 60%; /* Output takes 60% of width */
+  }
+}
