@@ -30,10 +30,4 @@ The Canadian Auto Loan Calculator is a web application built with React and Vite
 - Real-time calculation of monthly payments, total payments, and total interest paid.
 - Dynamic tax amount calculation based on selected province.
 
-## Installation
-To run the project locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YourUsername/Canadian-Auto-Loan-Calculator.git
 
