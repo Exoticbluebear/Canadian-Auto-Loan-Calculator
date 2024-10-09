@@ -25,7 +25,8 @@ const CarFinanceCalculator = () => {
         { id: 9, name: 'Prince Edward Island' },
         { id: 10, name: 'Quebec' },
         { id: 11, name: 'Saskatchewan' },
-        { id: 12, name: 'Yukon' },
+        { id: 12, name: 'Nunavut' },
+        { id: 13, name: 'Yukon' },
     ];
 
     useEffect(() => {
