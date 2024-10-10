@@ -73,7 +73,7 @@ const CarFinanceCalculator = () => {
     return (
       <div className="container">
       <div className="form-container">
-          <h1>Auto Loan Calculator</h1>
+          <h1>Canada Auto Loan Calculator</h1>
           <form onSubmit={calculateMonthlyPayment}>
               <input
                   type="number"
