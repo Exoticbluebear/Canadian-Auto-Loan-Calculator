@@ -1,4 +1,5 @@
 import './CarFinanceCalculator.scss';
+import logo from './logo.jpg';
 import React, { useState, useEffect } from 'react';
 
 const CarFinanceCalculator = () => {
@@ -73,7 +74,7 @@ const CarFinanceCalculator = () => {
     return (
       <div className="container">
       <div className="form-container">
-          <img src="/logo.jpg" alt="logo" width="50" height="33"></img>
+          <img src={logo} alt="logo" width="50" height="33"></img>
           <h1>Sachin Auto </h1>
          
           <h1>Car Loan Calculator</h1>
