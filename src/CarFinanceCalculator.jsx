@@ -73,7 +73,7 @@ const CarFinanceCalculator = () => {
     return (
       <div className="container">
       <div className="form-container">
-          <img src="https://github.com/Exoticbluebear/Canadian-Auto-Loan-Calculator/blob/29b13043324924d0645d59e9f60c1fa7e63ea616/logo.jpg" alt="logo" width="50" height="33"></img>
+          <img src="logo.jpg" alt="logo" width="50" height="33"></img>
           <h1>Sachin Auto </h1>
          
           <h1>Car Loan Calculator</h1>
