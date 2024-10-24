@@ -16,7 +16,7 @@ const CarFinanceCalculator = () => {
 
     const provinces = [
         { id: 1, name: 'Alberta' },
-        { id: 2, name: 'British Columbia' },
+        { id: 2, name: 'Canada' },
         { id: 3, name: 'Manitoba' },
         { id: 4, name: 'New Brunswick' },
         { id: 5, name: 'Newfoundland and Labrador' },
@@ -74,9 +74,8 @@ const CarFinanceCalculator = () => {
     return (
       <div className="container">
       <div className="form-container">
-          <img src={logo} alt="logo" width="50" height="33"></img>
+          <img src={logo} alt="logo" width="50" height="50" TextAlign = 'center'></img>
           <h1>Sachin Auto </h1>
-         
           <h1>Car Loan Calculator</h1>
           <form onSubmit={calculateMonthlyPayment}>
               <input
@@ -129,8 +128,9 @@ const CarFinanceCalculator = () => {
         <div>
             <h2>Your Auto Loan Summary</h2>
             <p>
-                Here in Sachin Auto We Care About You <br></br>
-                Based on your inputs, 
+                <strong>Here in Sachin Auto We Care About You</strong>
+                </br></br>
+                Based on your inputs, </br>
                 your monthly payment for the auto loan is <strong>${monthlyPayment}</strong>. 
                 This amount will be due each month over the course of your loan term of {loanTerm} years. 
                 In total, you will pay <strong>${totalPayment} </strong> 
@@ -138,7 +138,7 @@ const CarFinanceCalculator = () => {
                 Additionally, you will be paying <strong>${totalInterestPaid}</strong> in interest alone. 
             </p>
             <p>
-                It's important to note that, depending on your selected province, there is a tax amount of 
+                It's important to note that, depending on your selected country, mostly there is a tax amount of 
                 <strong> %{taxAmount}</strong> included in the total, 
                 which has an 5% for federal taxes. 
                 This amount reflects the regional tax rates applicable in your area, 
