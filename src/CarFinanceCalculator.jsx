@@ -127,7 +127,7 @@ const CarFinanceCalculator = () => {
         <div>
             <h2>Your Auto Loan Summary</h2>
             <p>
-                Here in Sachin Auto We Care About You <br>
+                Here in Sachin Auto We Care About You <br></br>
                 Based on your inputs, 
                 your monthly payment for the auto loan is <strong>${monthlyPayment}</strong>. 
                 This amount will be due each month over the course of your loan term of {loanTerm} years. 
