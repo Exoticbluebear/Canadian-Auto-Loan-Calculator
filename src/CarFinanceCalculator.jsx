@@ -73,7 +73,9 @@ const CarFinanceCalculator = () => {
     return (
       <div className="container">
       <div className="form-container">
-          <h1>Sachin Auto <br> Car Loan Calculator</h1>
+          <h1>Sachin Auto </h1>
+          <br> 
+          <h1>Car Loan Calculator</h1>
           <form onSubmit={calculateMonthlyPayment}>
               <input
                   type="number"
@@ -109,7 +111,7 @@ const CarFinanceCalculator = () => {
                   required
               >
 
-              <option value="">Select Province/Territory</option>
+              <option value="">Select Country</option> 
                   {provinces.map(province => (
                       <option key={province.id} value={province.name}>
                           {province.name}
