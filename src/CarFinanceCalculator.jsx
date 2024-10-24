@@ -74,7 +74,7 @@ const CarFinanceCalculator = () => {
     return (
       <div className="container">
       <div className="form-container">
-          <img src={logo} alt="logo" width="50" height="50"></img>
+          <img src={logo} alt="logo" width="75" height="75"></img>
           <h1>Sachin Auto </h1>
           <h1>Car Loan Calculator</h1>
           <form onSubmit={calculateMonthlyPayment}>
