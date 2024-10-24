@@ -1,4 +1,4 @@
-$primary: #6b717f;
+$primary: #ff0000;
 $accent: #e41be0;
 $bg: #f4f4f4; /* Light background */
 $foreground: #000000;
@@ -69,7 +69,8 @@ select {
 }
 
 img {
-  text-align: center;
+  display: block;         // Make the image a block element
+  margin: 0 auto; 
 }
 
 
