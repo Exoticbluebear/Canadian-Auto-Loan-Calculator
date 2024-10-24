@@ -131,11 +131,11 @@ const CarFinanceCalculator = () => {
                 <strong>Here in Sachin Auto We Care About You</strong>
                 <br />
                 Based on your inputs, <br />
-                your monthly payment for the auto loan is <strong>${monthlyPayment}</strong>. 
+                your monthly payment for the auto loan is <strong>Rs.{monthlyPayment}</strong>. 
                 This amount will be due each month over the course of your loan term of {loanTerm} years. 
-                In total, you will pay <strong>${totalPayment} </strong> 
+                In total, you will pay <strong>Rs.{totalPayment} </strong> 
                 for the vehicle, which includes the principal amount, interest accrued over the loan period and your down payment. 
-                Additionally, you will be paying <strong>${totalInterestPaid}</strong> in interest alone. 
+                Additionally, you will be paying <strong>Rs.{totalInterestPaid}</strong> in interest alone. 
             </p>
             <p>
                 It's important to note that, depending on your vehicle model, there is a luxury tax amount of 
