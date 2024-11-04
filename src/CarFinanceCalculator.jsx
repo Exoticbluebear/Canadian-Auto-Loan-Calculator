@@ -16,7 +16,7 @@ const CarFinanceCalculator = () => {
 
     const provinces = [
         { id: 1, name: 'Alberta' },
-        { id: 2, name: 'Luxury Vehicle' },
+        { id: 2, name: 'British Columbia' },
         { id: 3, name: 'Manitoba' },
         { id: 4, name: 'New Brunswick' },
         { id: 5, name: 'Newfoundland and Labrador' },
@@ -128,19 +128,21 @@ const CarFinanceCalculator = () => {
         <div>
             <h2>Your Auto Loan Summary</h2>
             <p>
-                <strong>Here in Sachin Auto We Care About You</strong>
+                <strong>Think carefully before you sign it</strong>
                 <br />
                 Based on your inputs, <br />
-                your monthly payment for the auto loan is <strong>Rs.{monthlyPayment}</strong>. 
+                your monthly payment for the auto loan is <strong>$.{monthlyPayment}</strong>. 
                 This amount will be due each month over the course of your loan term of {loanTerm} years. 
-                In total, you will pay <strong>Rs.{totalPayment} </strong> 
+                In total, you will pay <strong>$.{totalPayment} </strong> 
                 for the vehicle, which includes the principal amount, interest accrued over the loan period and your down payment. 
-                Additionally, you will be paying <strong>Rs.{totalInterestPaid}</strong> in interest alone. 
+                Additionally, you will be paying <strong>$.{totalInterestPaid}</strong> in interest alone. 
             </p>
             <p>
-                It's important to note that, depending on your vehicle model, there is a luxury tax amount of 
-                <strong> 120% </strong> included in the total, 
+                It's important to note that, depending on your vehicle model, there is a provincial and federal amount of 
+                <strong> {taxAmount}% </strong> included in your total, 
                 ensuring that all costs are accurately accounted for in your financing.
+                additionally there will be administrative fees and other fees.
+
             </p>
             <p>
                 It is important to think about your loan carefully!
