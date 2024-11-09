@@ -45,7 +45,17 @@ const CarFinanceCalculator = () => {
 
     };
 
-    
+    const reset = () => {
+    setPrice('');
+    setDownPayment('');
+    setLoanTerm('');
+    setInterestRate('');
+    setMonthlyPayment(null);
+    setTotalPayment(null);
+    setTotalInterestPaid(null);
+    setSelectedProvince('');
+    setTaxAmount(0);
+    };
 
     const calculateMonthlyPayment = (e) => {
         e.preventDefault();
@@ -148,6 +158,8 @@ const CarFinanceCalculator = () => {
                 If you have any further questions about these figures or need assistance with anything else, 
                 feel free to ask!
             </p>
+            <button type="submit" OnClick={reset}>Calculate again</button>
+
         </div>
     )}
 </div>
