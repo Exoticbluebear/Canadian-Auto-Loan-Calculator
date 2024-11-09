@@ -6,8 +6,9 @@ import './App.scss';
 
 const App = () => {
   return (
-    <background />
-    <div className="app-container">   
+    
+    <div className="app-container"> 
+      <background />
       <div className="calculator-overlay">
         <CarFinanceCalculator />
       </div>
