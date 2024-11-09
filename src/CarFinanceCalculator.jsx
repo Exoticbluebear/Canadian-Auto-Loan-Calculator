@@ -156,8 +156,7 @@ const CarFinanceCalculator = () => {
             </p>
             <p>
                 It is important to think about your loan carefully!
-                If you have any further questions about these figures or need assistance with anything else, 
-                feel free to ask!
+                If you have any further questions about these figures do your research! 
             </p>
             <button type="button" onClick={reset}>Calculate again</button>
         </div>
