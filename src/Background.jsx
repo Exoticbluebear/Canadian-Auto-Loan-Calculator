@@ -24,7 +24,7 @@ const Background = () => {
      //     </mask>
      //   </defs>
      // </svg> 
-        <img src=""></img>
+        <img src="https://github.com/Exoticbluebear/Canadian-Auto-Loan-Calculator/blob/195e5893d54badf1457000e7bee76753930de423/src/CanadaBGimgTileVersion.jpg"></img>
     </div>
   );
 };
