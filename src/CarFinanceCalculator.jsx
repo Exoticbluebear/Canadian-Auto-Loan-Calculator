@@ -138,8 +138,9 @@ const CarFinanceCalculator = () => {
             <h2>Your Auto Loan Summary</h2>
             <p>
                 <strong>Think carefully before you sign it</strong>
-                <br />
-                Based on your inputs, <br />
+            </p>
+            <p>
+                Based on your inputs, 
                 your monthly payment for the auto loan is <strong>${monthlyPayment}</strong>. 
                 This amount will be due each month over the course of your loan term of {loanTerm} years. 
                 In total, you will pay <strong>${totalPayment} </strong> 
@@ -159,7 +160,6 @@ const CarFinanceCalculator = () => {
                 feel free to ask!
             </p>
             <button type="button" onClick={reset}>Calculate again</button>
-
         </div>
     )}
 </div>
