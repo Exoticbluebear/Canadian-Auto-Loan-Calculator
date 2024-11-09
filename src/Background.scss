@@ -1,21 +1,21 @@
 /* src/Background.scss */
 .background {
-  position: fixed; /* Fixes the background to the viewport */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Behind other content */
-  overflow: hidden; /* Prevents overflow */
-  background-repeat: repeat; /* Makes the background image tile */
-  background-size: auto; /* Keeps the original size of the image when tiling */
+  z-index: 1; 
+  overflow: hidden; 
+  background-repeat: repeat; 
+  background-size: 20%; 
 }
 
 
 .svg-background {
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  position: absolute; /* Ensures the SVG fills the parent */
+  width: 100%; 
+  height: 100%; 
+  position: absolute; 
   top: 0;
   left: 0;
 }
