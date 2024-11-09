@@ -158,7 +158,7 @@ const CarFinanceCalculator = () => {
                 If you have any further questions about these figures or need assistance with anything else, 
                 feel free to ask!
             </p>
-            <button type="button" OnClick={reset}>Calculate again</button>
+            <button type="button" onClick={reset}>Calculate again</button>
 
         </div>
     )}
