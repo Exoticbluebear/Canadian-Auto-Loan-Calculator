@@ -1,13 +1,12 @@
 // src/Background.js
 import React from 'react';
-import './Background.scss'; // Import your styles for the background
+import './Background.scss';
+import bgImage from './CanadaBGimgTileVersion.jpg';
+
 
 const Background = () => {
-  return (
-    <div className="background">
-      <img src="src/CanadaBGimgTileVersion.jpg" alt="Background" />
-    </div>
-  );
+  return <div className="background" style={{ backgroundImage: `url(${bgImage})` }}>
+</div>;
 };
 
 export default Background;
