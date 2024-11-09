@@ -1,17 +1,16 @@
 .app-container {
-  position: relative; /* Establishes a positioning context */
-  height: 100vh; /* Full height of the viewport */
-  width: 100vw; /* Full width of the viewport */
+  position: relative; 
+  height: 100vh; 
+  width: 100vw; 
 }
 
 .calculator-overlay {
-  position: absolute; /* Positioning the calculator on top */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for element's own width and height */
-  z-index: 10; /* Ensure it’s above the background */
+  position: relative; 
+  top: 100%; 
+  left: 100%; 
+  transform: translate(-50%, -50%); 
+  z-index: 10; 
 }
-
 
 .logo {
   height: 6em;
