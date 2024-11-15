@@ -145,13 +145,14 @@ const CarFinanceCalculator = () => {
                 This amount will be due each month over the course of your loan term of {loanTerm} years. 
                 In total, you will pay <strong>${totalPayment} </strong> 
                 for the vehicle, which includes the principal amount, interest accrued over the loan period and your down payment. 
-                Additionally, you will be paying <strong>${totalInterestPaid}</strong> in interest alone. 
+                You will be paying <strong>${totalInterestPaid}</strong> in interest alone. 
             </p>
             <p>
-                It's important to note that, depending on your vehicle model, there is a provincial and federal amount of 
-                <strong> {taxAmount}% </strong> included in your total, 
-                ensuring that all costs are accurately accounted for in your financing.
-                additionally there will be administrative fees and other fees.
+               It is important to note that, depending on your province, a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing calculations. Additional charges, such as administrative fees and luxury vehicle taxes, may also apply.
+
+<strong>Zero-Emission Vehicles:</strong> Certain provinces offer tax exemptions or reductions for zero-emission vehicles. Please check with local authorities for specific incentives.
+
+<strong>Trade-Ins:</strong> For trade-ins at a dealership, the taxable amount is often calculated after deducting the trade-in value, potentially reducing the total tax payable.
 
             </p>
             <p>
