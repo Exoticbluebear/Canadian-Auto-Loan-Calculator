@@ -72,6 +72,7 @@ const CarFinanceCalculator = () => {
 
         const provinceTaxData = tax.find(item => item.province === selectedProvince);
         const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
+        
         const vehicleTax = price * (taxValue)/100;
         const priceAfterTax = vehicleTax + price;
 
@@ -81,7 +82,7 @@ const CarFinanceCalculator = () => {
 
         const monthly = (principal * interest) / (1 - Math.pow(1 + interest, -numPayments));
         const total = monthly * numPayments;
-        const totalInterest = total - principal; 
+        const totalInterest = principal * (parseFloat(interestRate) / 100) * loanTerm ; 
 
         const totalWithTax = total + vehicleTax;
 
