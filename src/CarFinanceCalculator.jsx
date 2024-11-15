@@ -140,25 +140,19 @@ const CarFinanceCalculator = () => {
                 <strong>Think carefully before you sign it</strong>
             </p>
             <p>
-                Based on your inputs, 
-                your monthly payment for the auto loan is <strong>${monthlyPayment}</strong>. 
-                This amount will be due each month over the course of your loan term of {loanTerm} years. 
-                In total, you will pay <strong>${totalPayment} </strong> 
-                for the vehicle, which includes the principal amount, interest accrued over the loan period and your down payment. 
-                You will be paying <strong>${totalInterestPaid}</strong> in interest alone. 
-            </p>
-            <p>
-               It is important to note that, depending on your province, a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing calculations. Additional charges, such as administrative fees and luxury vehicle taxes, may also apply.
+    Based on your inputs, your monthly auto loan payment is <strong>${monthlyPayment}</strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong>${totalPayment}</strong> for the vehicle, which includes the principal, interest accrued, and your down payment. Of this, <strong>${totalInterestPaid}</strong> will be paid in interest alone.
+</p>
+<p>
+    Note that a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing. Additional fees, such as administrative charges and luxury vehicle taxes, may apply.
 
-<strong>Zero-Emission Vehicles:</strong> Certain provinces offer tax exemptions or reductions for zero-emission vehicles. Please check with local authorities for specific incentives.
+    <strong>Zero-Emission Vehicles:</strong> Certain provinces offer tax exemptions or reductions for zero-emission vehicles. Please check with local authorities for details.
 
-<strong>Trade-Ins:</strong> For trade-ins at a dealership, the taxable amount is often calculated after deducting the trade-in value, potentially reducing the total tax payable.
+    <strong>Trade-Ins:</strong> For trade-ins at a dealership, the taxable amount is often calculated after deducting the trade-in value, potentially reducing your total tax.
+</p>
+<p>
+    Consider your loan carefully! If you have further questions, conduct additional research.
+</p>
 
-            </p>
-            <p>
-                It is important to think about your loan carefully!
-                If you have any further questions about these figures do your research! 
-            </p>
             <button type="button" onClick={reset}>Calculate again</button>
         </div>
     )}
