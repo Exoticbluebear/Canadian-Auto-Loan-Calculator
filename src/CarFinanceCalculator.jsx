@@ -55,6 +55,7 @@ const CarFinanceCalculator = () => {
     setTaxAmount(0);
     };
 
+    //output currency formatter
     const CurrencyFormatter = ({ amount, locale, currency }) => {
          const formattedAmount = new Intl.NumberFormat(locale, {
          style: 'currency',
@@ -64,15 +65,30 @@ const CarFinanceCalculator = () => {
          }).format(amount);
 
          return formattedAmount;
-    }; 
+    };
 
+    //input currency formatter
+    const formatCurrency = (value) => {
+         if (!value) return "";
+         value = value.toString().replace(/[^0-9.]/g, "");
+         const parts = value.split(".");
+         const wholePart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+         return parts.length > 1
+         ? `${wholePart}.${parts[1].substring(0, 2)}`
+         : "$" + wholePart;
+     };
+
+     const handleCurrencyInputChange = (setter) => (e) => {
+     const formattedValue = formatCurrency(e.target.value);
+     setter(formattedValue.replace(/,/g, "")); // Remove formatting for calculations
+     };
     
     const calculateMonthlyPayment = (e) => {
         e.preventDefault();
 
-        const principal = price - downPayment;
-        const interest = interestRate / 100 / 12;
-        const numPayments = loanTerm * 12;
+        const principal = parseFloat(price) - parseFloat(downPayment);
+        const interest = parseFloat(interestRate) / 100 / 12;
+        const numPayments = parseInt(loanTerm) * 12;
 
         const monthly = (principal * interest) / (1 - Math.pow(1 + interest, -numPayments));
         const total = monthly * numPayments;
@@ -81,14 +97,12 @@ const CarFinanceCalculator = () => {
         const provinceTaxData = tax.find(item => item.province === selectedProvince);
         const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
 
-        const totalWithTax = total + taxValue + downPayment;
+        const totalWithTax = total + taxValue + parseFloat(downPayment);
 
         setTaxAmount(taxValue);
         setMonthlyPayment((totalWithTax / numPayments).toFixed(2));
         setTotalPayment(totalWithTax.toFixed(2));
-        setTotalInterestPaid(totalInterest.toFixed(2));
-
-        
+        setTotalInterestPaid(totalInterest.toFixed(2));     
     };
 
     return (
@@ -101,14 +115,14 @@ const CarFinanceCalculator = () => {
                   type="number"
                   placeholder="Loan Amount"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
+                  onChange={handleCurrencyInputChange(setPrice)}
                   required
               />
               <input
                   type="number"
                   placeholder="Down Payment"
                   value={downPayment}
-                  onChange={(e) => setDownPayment(e.target.value === '' ? '' : Number(e.target.value))}
+                  onChange={handleCurrencyInputChange(setDownPayment)}
                   required
               />
               <input
