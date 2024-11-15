@@ -66,22 +66,6 @@ const CarFinanceCalculator = () => {
 
          return formattedAmount;
     };
-
-    //input currency formatter
-    const formatCurrency = (value) => {
-         if (!value) return "";
-         value = value.toString().replace(/[^0-9.]/g, "");
-         const parts = value.split(".");
-         const wholePart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-         return parts.length > 1
-         ? `${wholePart}.${parts[1].substring(0, 2)}`
-         : "$" + wholePart;
-     };
-
-     const handleCurrencyInputChange = (setter) => (e) => {
-     const formattedValue = formatCurrency(e.target.value);
-     setter(formattedValue.replace(/,/g, "")); // Remove formatting for calculations
-     };
     
     const calculateMonthlyPayment = (e) => {
         e.preventDefault();
@@ -115,14 +99,14 @@ const CarFinanceCalculator = () => {
                   type="text"
                   placeholder="Loan Amount"
                   value={price}
-                  onChange={handleCurrencyInputChange(setPrice)}
+                  onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
                   required
               />
               <input
                   type="text"
                   placeholder="Down Payment"
                   value={downPayment}
-                  onChange={handleCurrencyInputChange(setDownPayment)}
+                  onChange={(e) => setDownPayment(e.target.value === '' ? '' : Number(e.target.value))}
                   required
               />
               <input
