@@ -39,10 +39,8 @@ const CarFinanceCalculator = () => {
         fetchData();
     }, []);
 
-    const handleSliderChange = (e) => {
+    const handleSliderChange = (e) => { //upcoming update
         setLoanTerm(Number(e.target.value));
-
-
     };
 
     const reset = () => {
@@ -68,12 +66,29 @@ const CarFinanceCalculator = () => {
          return formattedAmount;
     }; 
 
+    const formatCurrency = (input) => {
+    
+         const numericValue = input.replace(/[^0-9.]/g, '');
+         const [whole, decimal] = numericValue.split('.');
+         const formattedWhole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+         if (decimal !== undefined) {
+           return `${formattedWhole}.${decimal.substring(0, 2)}`; // Restrict to 2 decimal places
+         }
+         return formattedWhole;
+    };
+
+    const handleInputChange = (setter) => (e) => {
+        const value = e.target.value;
+        const formattedValue = formatCurrency(value);
+        setter(formattedValue.replace(/,/g, '')); // Remove commas for calculations but keep formatted value in UI
+    };
+    
     const calculateMonthlyPayment = (e) => {
         e.preventDefault();
 
-        const principal = price - downPayment;
-        const interest = interestRate / 100 / 12;
-        const numPayments = loanTerm * 12;
+        const principal = parseFloat(price) - parseFloat(downPayment);
+        const interest = parseFloat(interestRate) / 100 / 12;
+        const numPayments = parseInt(loanTerm) * 12;
 
         const monthly = (principal * interest) / (1 - Math.pow(1 + interest, -numPayments));
         const total = monthly * numPayments;
@@ -102,14 +117,14 @@ const CarFinanceCalculator = () => {
                   type="number"
                   placeholder="Loan Amount"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
+                  onChange={handleInputChange(setPrice)}
                   required
               />
               <input
                   type="number"
                   placeholder="Down Payment"
                   value={downPayment}
-                  onChange={(e) => setDownPayment(e.target.value === '' ? '' : Number(e.target.value))}
+                  onChange={handleInputChange(setDownPayment)}
                   required
               />
               <input
