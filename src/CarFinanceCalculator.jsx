@@ -141,18 +141,15 @@ const CarFinanceCalculator = () => {
             </p>
             <p>
     Based on your inputs, your monthly auto loan payment is <strong>${monthlyPayment}</strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong>${totalPayment}</strong> for the vehicle, which includes the principal, interest accrued, and your down payment. Of this, <strong>${totalInterestPaid}</strong> will be paid in interest alone.
-</p>
-<p>
+</p><p>
     Note that a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing. Additional fees, such as administrative charges and luxury vehicle taxes, may apply.
-
+</p><p>
     <strong>Zero-Emission Vehicles:</strong> Certain provinces offer tax exemptions or reductions for zero-emission vehicles. Please check with local authorities for details.
-
+</p><p> 
     <strong>Trade-Ins:</strong> For trade-ins at a dealership, the taxable amount is often calculated after deducting the trade-in value, potentially reducing your total tax.
-</p>
-<p>
+</p><p>
     Consider your loan carefully! If you have further questions, conduct additional research.
-</p>
-
+           </p>
             <button type="button" onClick={reset}>Calculate again</button>
         </div>
     )}
