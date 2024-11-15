@@ -81,7 +81,7 @@ const CarFinanceCalculator = () => {
         const provinceTaxData = tax.find(item => item.province === selectedProvince);
         const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
 
-        const totalWithTax = total + total*taxValue + parseFloat(downPayment);
+        const totalWithTax = total + taxValue + parseFloat(downPayment);
 
         setTaxAmount(taxValue);
         setMonthlyPayment((totalWithTax / numPayments).toFixed(2));
