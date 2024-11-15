@@ -70,18 +70,19 @@ const CarFinanceCalculator = () => {
     const calculateMonthlyPayment = (e) => {
         e.preventDefault();
 
+        const provinceTaxData = tax.find(item => item.province === selectedProvince);
+        const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
+        const vehicleTax = price * (taxValue)/100
+
         const principal = parseFloat(price) - parseFloat(downPayment);
         const interest = parseFloat(interestRate) / 100 / 12;
         const numPayments = parseInt(loanTerm) * 12;
 
         const monthly = (principal * interest) / (1 - Math.pow(1 + interest, -numPayments));
         const total = monthly * numPayments;
-        const totalInterest = total - principal;
+        const totalInterest = total - principal; 
 
-        const provinceTaxData = tax.find(item => item.province === selectedProvince);
-        const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
-
-        const totalWithTax = total + taxValue + parseFloat(downPayment);
+        const totalWithTax = total + vehicleTax + parseFloat(downPayment);
 
         setTaxAmount(taxValue);
         setMonthlyPayment((totalWithTax / numPayments).toFixed(2));
@@ -97,7 +98,7 @@ const CarFinanceCalculator = () => {
           <form onSubmit={calculateMonthlyPayment}>
               <input
                   type="text"
-                  placeholder="Loan Amount"
+                  placeholder="Value of the car"
                   value={price}
                   onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
                   required
