@@ -97,7 +97,7 @@ const CarFinanceCalculator = () => {
         const provinceTaxData = tax.find(item => item.province === selectedProvince);
         const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
 
-        const totalWithTax = total + taxValue + parseFloat(downPayment);
+        const totalWithTax = total + total*taxValue + parseFloat(downPayment);
 
         setTaxAmount(taxValue);
         setMonthlyPayment((totalWithTax / numPayments).toFixed(2));
@@ -112,14 +112,14 @@ const CarFinanceCalculator = () => {
           <h1>Auto Loan Calculator</h1>
           <form onSubmit={calculateMonthlyPayment}>
               <input
-                  type="number"
+                  type="text"
                   placeholder="Loan Amount"
                   value={price}
                   onChange={handleCurrencyInputChange(setPrice)}
                   required
               />
               <input
-                  type="number"
+                  type="text"
                   placeholder="Down Payment"
                   value={downPayment}
                   onChange={handleCurrencyInputChange(setDownPayment)}
