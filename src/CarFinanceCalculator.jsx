@@ -57,6 +57,15 @@ const CarFinanceCalculator = () => {
     setTaxAmount(0);
     };
 
+    const CurrencyFormatter = ({ amount, locale, currency }) => {
+         const formattedAmount = new Intl.NumberFormat(locale, {
+         style: 'currency',
+         currency: currency,
+         }).format(amount);
+
+         return <div>{formattedAmount}</div>;
+    }; 
+
     const calculateMonthlyPayment = (e) => {
         e.preventDefault();
 
@@ -140,7 +149,7 @@ const CarFinanceCalculator = () => {
                 <strong>Think carefully before you sign it</strong>
             </p>
             <p>
-    Based on your inputs, your monthly auto loan payment is <strong>${monthlyPayment}</strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong>${totalPayment}</strong> for the vehicle, which includes the principal, interest accrued, and your down payment. Of this, <strong>${totalInterestPaid}</strong> will be paid in interest alone.
+    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={monthlyPayment} locale="de-DE" currency="EUR"/></strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong>${totalPayment}</strong> for the vehicle, which includes the principal, interest accrued, and your down payment. Of this, <strong>${totalInterestPaid}</strong> will be paid in interest alone.
 </p><p>
     Note that a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing. Additional fees, such as administrative charges and luxury vehicle taxes, may apply.
 </p><p>
