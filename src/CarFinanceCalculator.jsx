@@ -42,6 +42,21 @@ const CarFinanceCalculator = () => {
     const handleSliderChange = (e) => { //upcoming update
         setLoanTerm(Number(e.target.value));
     };
+    //input currency formatter
+    const formatCurrency = (value) => {
+    if (!value) return "";
+    value = value.toString().replace(/[^0-9.]/g, "");
+    const parts = value.split(".");
+    const wholePart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.length > 1
+      ? `${wholePart}.${parts[1].substring(0, 2)}`
+      : "$" + wholePart;
+    };
+
+    const handleCurrencyInputChange = (setter) => (e) => {
+    const formattedValue = formatCurrency(e.target.value);
+    setter(formattedValue.replace(/[$,]/g, "")); // Remove formatting for calculations
+  };
 
     const reset = () => {
     setPrice('');
@@ -101,15 +116,18 @@ const CarFinanceCalculator = () => {
               <input
                   type="text"
                   placeholder="Value of the car"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
+                  value={formatCurrency(price)}
+                  onChange={handleCurrencyInputChange(setPrice)}
+                  //onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
                   required
               />
               <input
                   type="text"
                   placeholder="Down Payment"
-                  value={downPayment}
-                  onChange={(e) => setDownPayment(e.target.value === '' ? '' : Number(e.target.value))}
+                  value={formatCurrency(downPayment)}
+                  onChange={handleCurrencyInputChange(setDownPayment)}
+                  //value={downPayment}
+                  //onChange={(e) => setDownPayment(e.target.value === '' ? '' : Number(e.target.value))}
                   required
               />
               <input
