@@ -110,12 +110,12 @@ const CarFinanceCalculator = () => {
 
     const total = monthly * numPayments;
     const totalInterest = total - principal;
-    const TotalPaidAttheEndofTheTerm = total + downPayment;
+    const totalPaidAttheEndofTheTerm = parseFloat(total + downPayment);
 
     setTaxAmount(taxValue);
     setMonthlyPayment(monthly.toFixed(2)); // Ensure formatting to two decimal places
     setTotalPayment(total.toFixed(2));
-    setTotalPaid(TotalPaidAttheEndofTheTerm.toFixed(2));
+    setTotalPaid(totalPaidAttheEndofTheTerm.toFixed(2));
     setTotalInterestPaid(totalInterest.toFixed(2));
 
     console.log("Monthly Payment:", monthly);
