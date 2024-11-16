@@ -174,7 +174,7 @@ const CarFinanceCalculator = () => {
                 <strong>Think carefully before you sign it</strong>
             </p>
             <p>
-    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={monthly} locale="en-CA" currency="CAD"/></strong>, 
+    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={price} locale="en-CA" currency="CAD"/></strong>, 
     payable each month over your loan term of {loanTerm} years. In total, you will pay <strong><CurrencyFormatter amount={totalPayment} locale="en-CA" currency="CAD"/></strong> 
     for the vehicle, which includes the principal and interest accrued. Of this, <strong><CurrencyFormatter amount={totalInterestPaid} locale="en-CA" currency="CAD"/></strong> 
     will be paid in interest alone.
