@@ -90,28 +90,32 @@ const CarFinanceCalculator = () => {
     );
         
     const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
+const vehicleTax = (parseFloat(price) * taxValue) / 100; // Ensure price is parsed
+const priceAfterTax = parseFloat(price) + vehicleTax;
 
-    const vehicleTax = (price * taxValue) / 100;
-    const priceAfterTax = vehicleTax + price;
+const principal = priceAfterTax - parseFloat(downPayment);
+const interestRatePerMonth = parseFloat(interestRate) / 100 / 12;
+const numPayments = parseInt(loanTerm) * 12;
 
-    const principal = parseFloat(priceAfterTax) - parseFloat(downPayment);
-    const interest = parseFloat(interestRate) / 100 / 12;
-    const numPayments = parseInt(loanTerm) * 12;
+let monthly = 0;
+if (interestRatePerMonth > 0) {
+  // Amortization formula for calculating monthly payments
+  monthly = (principal * interestRatePerMonth) / 
+            (1 - Math.pow(1 + interestRatePerMonth, -numPayments));
+} else {
+  // Simple division for interest-free loans
+  monthly = principal / numPayments;
+}
 
-    const monthly =
-      (principal * interest) / (1 - Math.pow(1 + interest, -numPayments));
-    const total = monthly * numPayments;
-    const totalInterest =
-      principal * (parseFloat(interestRate) / 100) * loanTerm;
+const total = monthly * numPayments;
+const totalInterest = total - principal;
 
-    const finalValue = total + vehicleTax + downPayment;
+setTaxAmount(taxValue);
+setMonthlyPayment(monthly.toFixed(2)); // Ensure formatting to two decimal places
+setTotalPayment(total.toFixed(2));
+setTotalInterestPaid(totalInterest.toFixed(2));
 
-    setTaxAmount(taxValue);
-    setMonthlyPayment(monthly);
-    setTotalPayment(finalValue);
-    setTotalInterestPaid(totalInterest.toFixed(2)); 
-
-    console.log("Monthly Payment:", monthly);
+console.log("Monthly Payment:", monthly);
     };
 
     return (
