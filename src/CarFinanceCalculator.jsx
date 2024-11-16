@@ -102,8 +102,8 @@ const CarFinanceCalculator = () => {
         const finalValue = total + vehicleTax + downPayment;
 
         setTaxAmount(taxValue);
-        setMonthlyPayment(monthly.toFixed(2));
-        setTotalPayment(finalValue.toFixed(2));
+        setMonthlyPayment(monthly);
+        setTotalPayment(finalValue);
         setTotalInterestPaid(totalInterest.toFixed(2));     
     };
 
