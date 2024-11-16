@@ -90,32 +90,32 @@ const CarFinanceCalculator = () => {
     );
         
     const taxValue = provinceTaxData ? provinceTaxData.tax : 0;
-const vehicleTax = (parseFloat(price) * taxValue) / 100; // Ensure price is parsed
-const priceAfterTax = parseFloat(price) + vehicleTax;
+    const vehicleTax = (parseFloat(price) * taxValue) / 100; // Ensure price is parsed
+    const priceAfterTax = parseFloat(price) + vehicleTax;
 
-const principal = priceAfterTax - parseFloat(downPayment);
-const interestRatePerMonth = parseFloat(interestRate) / 100 / 12;
-const numPayments = parseInt(loanTerm) * 12;
+    const principal = priceAfterTax - parseFloat(downPayment);
+    const interestRatePerMonth = parseFloat(interestRate) / 100 / 12;
+    const numPayments = parseInt(loanTerm) * 12;
 
-let monthly = 0;
-if (interestRatePerMonth > 0) {
-  // Amortization formula for calculating monthly payments
-  monthly = (principal * interestRatePerMonth) / 
+    let monthly = 0;
+    if (interestRatePerMonth > 0) {
+      // Amortization formula for calculating monthly payments
+    monthly = (principal * interestRatePerMonth) / 
             (1 - Math.pow(1 + interestRatePerMonth, -numPayments));
-} else {
-  // Simple division for interest-free loans
-  monthly = principal / numPayments;
-}
+    } else {
+     // Simple division for interest-free loans
+    monthly = principal / numPayments;
+    }
 
-const total = monthly * numPayments;
-const totalInterest = total - principal;
+    const total = monthly * numPayments;
+    const totalInterest = total - principal;
 
-setTaxAmount(taxValue);
-setMonthlyPayment(monthly.toFixed(2)); // Ensure formatting to two decimal places
-setTotalPayment(total.toFixed(2));
-setTotalInterestPaid(totalInterest.toFixed(2));
+    setTaxAmount(taxValue);
+    setMonthlyPayment(monthly.toFixed(2)); // Ensure formatting to two decimal places
+    setTotalPayment(total.toFixed(2));
+    setTotalInterestPaid(totalInterest.toFixed(2));
 
-console.log("Monthly Payment:", monthly);
+    console.log("Monthly Payment:", monthly);
     };
 
     return (
@@ -180,10 +180,7 @@ console.log("Monthly Payment:", monthly);
                 <strong>Think carefully before you sign it</strong>
             </p>
             <p>
-    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={monthlyPayment} locale="en-CA" currency="CAD"/></strong>, 
-    payable each month over your loan term of {loanTerm} years. In total, you will pay <strong><CurrencyFormatter amount={totalPayment} locale="en-CA" currency="CAD"/></strong> 
-    for the vehicle, which includes the principal and interest accrued. Of this, <strong><CurrencyFormatter amount={totalInterestPaid} locale="en-CA" currency="CAD"/></strong> 
-    will be paid in interest alone.
+    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={monthlyPayment} locale="en-CA" currency="CAD"/></strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong><CurrencyFormatter amount={totalPayment} locale="en-CA" currency="CAD"/></strong> for the vehicle, which includes the principal and interest accrued. Of this, <strong><CurrencyFormatter amount={totalInterestPaid} locale="en-CA" currency="CAD"/></strong> will be paid in interest alone.
 </p><p>
     Note that a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing. Additional fees, such as administrative charges and luxury vehicle taxes, may apply.
 </p><p>
