@@ -110,7 +110,7 @@ const CarFinanceCalculator = () => {
 
     const total = monthly * numPayments;
     const totalInterest = total - principal;
-    const totalPaidAttheEndofTheTerm = parseFloat(total + downPayment);
+    const totalPaidAttheEndofTheTerm = total + parseFloat(downPayment);
 
     setTaxAmount(taxValue);
     setMonthlyPayment(monthly.toFixed(2)); // Ensure formatting to two decimal places
