@@ -13,7 +13,8 @@ const CarFinanceCalculator = () => {
     const [tax, setTax] = useState([]);
     const [selectedProvince, setSelectedProvince] = useState('');
     const [taxAmount, setTaxAmount] = useState(0);
-
+    const [totalPaid, setTotalPaid] = useState('');
+    
     const provinces = [
         { id: 1, name: 'Alberta' },
         { id: 2, name: 'British Columbia' },
@@ -109,10 +110,12 @@ const CarFinanceCalculator = () => {
 
     const total = monthly * numPayments;
     const totalInterest = total - principal;
+    const TotalPaidAttheEndofTheTerm = total + downPayment;
 
     setTaxAmount(taxValue);
     setMonthlyPayment(monthly.toFixed(2)); // Ensure formatting to two decimal places
     setTotalPayment(total.toFixed(2));
+    setTotalPaid(TotalPaidAttheEndofTheTerm.toFixed(2));
     setTotalInterestPaid(totalInterest.toFixed(2));
 
     console.log("Monthly Payment:", monthly);
@@ -180,7 +183,7 @@ const CarFinanceCalculator = () => {
                 <strong>Think carefully before you sign it</strong>
             </p>
             <p>
-    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={monthlyPayment} locale="en-CA" currency="CAD"/></strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong><CurrencyFormatter amount={totalPayment} locale="en-CA" currency="CAD"/></strong> for the vehicle, which includes the principal and interest accrued. Of this, <strong><CurrencyFormatter amount={totalInterestPaid} locale="en-CA" currency="CAD"/></strong> will be paid in interest alone.
+    Based on your inputs, your monthly auto loan payment is <strong><CurrencyFormatter amount={monthlyPayment} locale="en-CA" currency="CAD"/></strong>, payable each month over your loan term of {loanTerm} years. In total, you will pay <strong><CurrencyFormatter amount={totalPaid} locale="en-CA" currency="CAD"/></strong> for the vehicle, which includes the principal and interest accrued. Of this, <strong><CurrencyFormatter amount={totalInterestPaid} locale="en-CA" currency="CAD"/></strong> will be paid in interest alone.
 </p><p>
     Note that a combined provincial and federal tax rate of <strong>{taxAmount}%</strong> is included in your total, ensuring all costs are accurately reflected in your financing. Additional fees, such as administrative charges and luxury vehicle taxes, may apply.
 </p><p>
