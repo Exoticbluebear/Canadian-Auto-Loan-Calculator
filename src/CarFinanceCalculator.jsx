@@ -119,6 +119,7 @@ const CarFinanceCalculator = () => {
     setTotalInterestPaid(totalInterest.toFixed(2));
 
     console.log("Monthly Payment:", monthly);
+    console.log("end total", totalPaidAttheEndofTheTerm);
     };
 
     return (
