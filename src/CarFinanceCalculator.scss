@@ -25,6 +25,14 @@ body {
   overflow: hidden; /* Rounded corners effect */
 }
 
+.aniNumbers {
+  margin-top: 80px;
+}
+
+.Pie {
+  margin-top: 30px;
+}
+
 .form-container,
 .output-container {
   background-color: #ffffff; /* White background for the form */
@@ -41,7 +49,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
   color: $primary; /* Use primary color for headings */
 }

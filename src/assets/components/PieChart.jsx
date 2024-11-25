@@ -4,7 +4,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 // Array of colors for the segments
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-const MyPieChart = ({ data, data1 }) => {
+const MyPieChart = ({ data }) => {
   return (
     <PieChart width={310} height={300}>
       <Pie

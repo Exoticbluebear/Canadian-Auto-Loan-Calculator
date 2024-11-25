@@ -2,13 +2,14 @@ import "./CarFinanceCalculator.scss";
 import MyPieChart from "./assets/components/PieChart";
 import React, { useState, useEffect } from "react";
 import greet from "dynamic-currency-formatter";
+import AniNumbers from "./assets/components/AniNumbers";
 
 const CarFinanceCalculator = () => {
   const [price, setPrice] = useState("");
   const [downPayment, setDownPayment] = useState("");
   const [loanTerm, setLoanTerm] = useState("");
   const [interestRate, setInterestRate] = useState("");
-  const [monthlyPayment, setMonthlyPayment] = useState(null);
+  const [monthlyPayment, setMonthlyPayment] = useState();
   const [totalPayment, setTotalPayment] = useState(null);
   const [totalInterestPaid, setTotalInterestPaid] = useState(null);
   const [tax, setTax] = useState([]);
@@ -211,6 +212,7 @@ const CarFinanceCalculator = () => {
           </div>
         )}
       </div>
+
       <div className="form-container">
         <h1>Auto Loan Calculator</h1>
         <form onSubmit={calculateMonthlyPayment}>
@@ -267,8 +269,29 @@ const CarFinanceCalculator = () => {
           <button type="submit">Calculate</button>
         </form>
       </div>
+
       <div className="output-container">
-        {monthlyPayment && <MyPieChart data={data} />}
+        {monthlyPayment && (
+          <div>
+            <div className="Pie">
+              <MyPieChart data={data} />
+            </div>
+            <div className="aniNumbers">
+              <h3>
+                Monthly Payment:{"$"}
+                <AniNumbers n={parseFloat(monthlyPayment) || 0} />
+              </h3>
+              <h3>
+                Bi-Weekly Payment:{"$"}
+                <AniNumbers n={parseFloat(monthlyPayment / 2) || 0} />
+              </h3>
+              <h3>
+                Weekly Payment:{"$"}
+                <AniNumbers n={parseFloat(monthlyPayment / 4) || 0} />
+              </h3>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
