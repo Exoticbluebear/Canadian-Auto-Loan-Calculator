@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className="app-container">
       <div className="calculator-overlay">
-        <Introduction />
+    
         <CarFinanceCalculator />
       </div>
     </div>
