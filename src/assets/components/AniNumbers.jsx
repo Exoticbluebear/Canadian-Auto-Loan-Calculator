@@ -10,7 +10,11 @@ function AniNumbers({ n }) {
     delay: 200,
     config: { mass: 1, tension: 20, friction: 10 },
   });
-  return <animated.div>{props.values.to((n) => n.toFixed(2))}</animated.div>;
+  return (
+    <div>
+      <animated.div>{props.values.to((n) => "$" + n.toFixed(2))}</animated.div>
+    </div>
+  );
 }
 
 export default AniNumbers;

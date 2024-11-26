@@ -122,7 +122,7 @@ const CarFinanceCalculator = () => {
 
     const principal = priceAfterTax - parseFloat(downPayment);
     const interestRatePerMonth = parseFloat(interestRate) / 100 / 12;
-    const numPayments = parseInt(loanTerm) * 12;
+    const numPayments = parseFloat(loanTerm) * 12;
 
     let monthly = 0;
     if (interestRatePerMonth > 0) {
@@ -216,35 +216,35 @@ const CarFinanceCalculator = () => {
       <div className="form-container">
         <h1>Auto Loan Calculator</h1>
         <form onSubmit={calculateMonthlyPayment}>
+          <label>Value of the Vehicle : </label>
           <input
             type="text"
-            placeholder="Value of the car"
             value={formatCurrency(price)}
             onChange={handleCurrencyInputChange(setPrice)}
             //onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))}
             required
           />
+          <label>Down Payment : </label>
           <input
             type="text"
-            placeholder="Down Payment"
             value={formatCurrency(downPayment)}
             onChange={handleCurrencyInputChange(setDownPayment)}
             //value={downPayment}
             //onChange={(e) => setDownPayment(e.target.value === '' ? '' : Number(e.target.value))}
             required
           />
+          <label>Loan Term (Years) : </label>
           <input
             type="number"
-            placeholder="Loan Term (Years)"
             value={loanTerm}
             onChange={(e) =>
               setLoanTerm(e.target.value === "" ? "" : Number(e.target.value))
             }
             required
           />
+          <label>Interest Rate (%) </label>
           <input
             type="number"
-            placeholder="Interest Rate (%)"
             value={interestRate}
             onChange={(e) =>
               setInterestRate(
@@ -253,19 +253,20 @@ const CarFinanceCalculator = () => {
             }
             required
           />
+          <label>Select your Province/Territory : </label>
           <select
             value={selectedProvince}
             onChange={(e) => setSelectedProvince(e.target.value)}
             required
           >
-            <option value="">Select Province/Territory</option>
+            <option value="">Select</option>
             {provinces.map((province) => (
               <option key={province.id} value={province.name}>
                 {province.name}
               </option>
             ))}
           </select>
-          <h3></h3>
+          <h3> </h3>
           <button type="submit">Calculate</button>
         </form>
       </div>
@@ -277,18 +278,18 @@ const CarFinanceCalculator = () => {
               <MyPieChart data={data} />
             </div>
             <div className="aniNumbers">
-              <h3>
-                Monthly Payment:{"$"}
+              <h2>
+                Monthly Payment :{" "}
                 <AniNumbers n={parseFloat(monthlyPayment) || 0} />
-              </h3>
-              <h3>
-                Bi-Weekly Payment:{"$"}
+              </h2>
+              <h2>
+                Bi-Weekly Payment :{""}
                 <AniNumbers n={parseFloat(monthlyPayment / 2) || 0} />
-              </h3>
-              <h3>
-                Weekly Payment:{"$"}
+              </h2>
+              <h2>
+                Weekly Payment :{""}
                 <AniNumbers n={parseFloat(monthlyPayment / 4) || 0} />
-              </h3>
+              </h2>
             </div>
           </div>
         )}
