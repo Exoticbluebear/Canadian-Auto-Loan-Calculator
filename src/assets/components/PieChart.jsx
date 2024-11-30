@@ -6,7 +6,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const MyPieChart = ({ data }) => {
   return (
-    <PieChart width={310} height={300}>
+    <PieChart width={400} height={300}>
       <Pie
         data={data}
         outerRadius={100} // Outer radius of the pie

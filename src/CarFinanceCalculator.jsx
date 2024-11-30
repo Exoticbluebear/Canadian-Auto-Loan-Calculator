@@ -155,66 +155,9 @@ const CarFinanceCalculator = () => {
 
   return (
     <div className="container">
-      <div className="output-container">
-        {monthlyPayment && (
-          <div>
-            <h2>Your Auto Loan Summary</h2>
-            <p>
-              <strong>Think carefully before you sign it</strong>
-            </p>
-            <p>
-              Based on your inputs, your monthly auto loan payment is{" "}
-              <strong>{formatCurrency(monthlyPayment.toString())}</strong>,
-              payable each month over your loan term of {loanTerm} years. In
-              total, you will pay{" "}
-              <strong>
-                <CurrencyFormatter
-                  amount={totalPaid}
-                  locale="en-CA"
-                  currency="CAD"
-                />
-              </strong>{" "}
-              for the vehicle, which includes the principal and interest
-              accrued. Of this,{" "}
-              <strong>
-                <CurrencyFormatter
-                  amount={totalInterestPaid}
-                  locale="en-CA"
-                  currency="CAD"
-                />
-              </strong>{" "}
-              will be paid in interest alone.
-            </p>
-            <p>
-              Note that a combined provincial and federal tax rate of{" "}
-              <strong>{taxAmount}%</strong> is included in your total, ensuring
-              all costs are accurately reflected in your financing. Additional
-              fees, such as administrative charges and luxury vehicle taxes, may
-              apply.
-            </p>
-            <p>
-              <strong>Zero-Emission Vehicles:</strong> Certain provinces offer
-              tax exemptions or reductions for zero-emission vehicles. Please
-              check with local authorities for details.
-            </p>
-            <p>
-              <strong>Trade-Ins:</strong> For trade-ins at a dealership, the
-              taxable amount is often calculated after deducting the trade-in
-              value, potentially reducing your total tax.
-            </p>
-            <p>
-              Consider your loan carefully! If you have further questions,
-              conduct additional research.
-            </p>
-            <button type="button" onClick={reset}>
-              Reset
-            </button>
-          </div>
-        )}
-      </div>
-
       <div className="form-container">
         <h1>Auto Loan Calculator</h1>
+        <br></br>
         <form onSubmit={calculateMonthlyPayment}>
           <label>Value of the Vehicle : </label>
           <input
@@ -271,28 +214,88 @@ const CarFinanceCalculator = () => {
         </form>
       </div>
 
-      <div className="output-container">
-        {monthlyPayment && (
-          <div>
-            <div className="Pie">
-              <MyPieChart data={data} />
+      <div className="right-container">
+        <div className="output-container">
+          {monthlyPayment && (
+            <div className="pieandani">
+              <div className="Pie">
+                <MyPieChart data={data} />
+              </div>
+              <div className="aniNumbers">
+                <h2>
+                  Monthly Payment :{" "}
+                  <AniNumbers n={parseFloat(monthlyPayment) || 0} />
+                </h2>
+                <h2>
+                  Bi-Weekly Payment :{""}
+                  <AniNumbers n={parseFloat(monthlyPayment / 2) || 0} />
+                </h2>
+                <h2>
+                  Weekly Payment :{""}
+                  <AniNumbers n={parseFloat(monthlyPayment / 4) || 0} />
+                </h2>
+              </div>
             </div>
-            <div className="aniNumbers">
-              <h2>
-                Monthly Payment :{" "}
-                <AniNumbers n={parseFloat(monthlyPayment) || 0} />
-              </h2>
-              <h2>
-                Bi-Weekly Payment :{""}
-                <AniNumbers n={parseFloat(monthlyPayment / 2) || 0} />
-              </h2>
-              <h2>
-                Weekly Payment :{""}
-                <AniNumbers n={parseFloat(monthlyPayment / 4) || 0} />
-              </h2>
+          )}
+        </div>
+
+        <div className="output-container">
+          {monthlyPayment && (
+            <div>
+              <h2>Your Auto Loan Summary</h2>
+              <p>
+                <strong>Think carefully before you sign it</strong>
+              </p>
+              <p>
+                Based on your inputs, your monthly auto loan payment is{" "}
+                <strong>{formatCurrency(monthlyPayment.toString())}</strong>,
+                payable each month over your loan term of {loanTerm} years. In
+                total, you will pay{" "}
+                <strong>
+                  <CurrencyFormatter
+                    amount={totalPaid}
+                    locale="en-CA"
+                    currency="CAD"
+                  />
+                </strong>{" "}
+                for the vehicle, which includes the principal and interest
+                accrued. Of this,{" "}
+                <strong>
+                  <CurrencyFormatter
+                    amount={totalInterestPaid}
+                    locale="en-CA"
+                    currency="CAD"
+                  />
+                </strong>{" "}
+                will be paid in interest alone.
+              </p>
+              <p>
+                Note that a combined provincial and federal tax rate of{" "}
+                <strong>{taxAmount}%</strong> is included in your total,
+                ensuring all costs are accurately reflected in your financing.
+                Additional fees, such as administrative charges and luxury
+                vehicle taxes, may apply.
+              </p>
+              <p>
+                <strong>Zero-Emission Vehicles:</strong> Certain provinces offer
+                tax exemptions or reductions for zero-emission vehicles. Please
+                check with local authorities for details.
+              </p>
+              <p>
+                <strong>Trade-Ins:</strong> For trade-ins at a dealership, the
+                taxable amount is often calculated after deducting the trade-in
+                value, potentially reducing your total tax.
+              </p>
+              <p>
+                Consider your loan carefully! If you have further questions,
+                conduct additional research.
+              </p>
+              <button type="button" onClick={reset}>
+                Reset
+              </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
